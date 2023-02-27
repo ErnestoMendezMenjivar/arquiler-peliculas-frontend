@@ -1,0 +1,51 @@
+
+<h2>Lista Peliculas</h2>
+
+
+    
+
+  <div class="row">
+
+    <!-- Cards -->
+
+    <div class="col-lg-3"  *ngFor="let pelicula of peliculas">
+
+        <div class="card" style="width: 20rem;" >
+          <img [src]=" pelicula.imagen " class="card-img-top" alt="..." style="height: 200px; width: auto;">
+            <div class="card-body">
+              <h5 class="card-title">{{ pelicula.titulo }}</h5>
+              <p class="card-text">{{ pelicula.descripcion }}</p>
+              <!-- <p class="card-text">{{ pelicula.id_pelicula}}</p> -->
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">tiempo: {{ pelicula.tiempo }}</li>
+                  <li class="list-group-item">{{ pelicula.disponibilidad }}</li>
+                  <li class="list-group-item">Stock: {{ pelicula.stock }}</li>
+                </ul>
+
+
+              <a href="#" class="btn btn-primary">Arquilar  $ {{ pelicula.precio_alquiler }}</a>&nbsp;&nbsp;
+              <a href="#" class="btn btn-primary">Comprar  $ {{ pelicula.precio_venta }}</a>
+            </div>
+          </div>
+    </div> &nbsp;&nbsp;&nbsp;
+
+</div>
+<br>
+<div class="row">
+    <div class="col-12">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+              <li class="page-item disabled">
+                <a class="page-link">Previous</a>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item">
+                <a class="page-link" href="#">Next</a>
+              </li>
+            </ul>
+          </nav>
+    </div>
+</div>
+    

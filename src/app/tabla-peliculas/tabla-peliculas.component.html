@@ -1,0 +1,47 @@
+<br><br><br>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6">
+      <table class="table table-bordered table-striped table-hover responsive"  style="background-color: aliceblue;">
+        <thead class="table-dark">
+          <tr>
+            <th>Id</th>
+            <th>Titulo</th>
+            <th>Descripcion</th>
+            <th>Img</th>
+            <th>Stock</th>
+            <th>Tiempo</th>
+            <th>P.V</th>
+            <th>P.A</th>
+            <th>Disponible</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let pelicula of peliculas">
+            <td>{{ pelicula.id_pelicula}}</td>
+            <td>{{ pelicula.titulo }}</td>
+            <td>{{ pelicula.descripcion | slice:0:60 }}</td>
+            <td style="text-align: center;"><img [src]=" pelicula.imagen" [width]="30" [height]="30"/></td>
+            <td>{{ pelicula.stock }}</td>
+            <td>{{ pelicula.tiempo }}</td>
+            <td>$ {{ pelicula.precio_venta }}</td>
+            <td>$ {{ pelicula.precio_alquiler }}</td>
+            <td>{{ pelicula.disponibilidad }}</td>
+            <td>
+              <button (click)= "actualizarPelicula(pelicula.id_pelicula)" class="btn btn-info">Editar</button>
+              <button (click)= "verDetallesPeliculas(pelicula.id_pelicula)" class="btn btn-primary" style="margin-left: 10px ;" >Detalles</button>
+              <button (click)= "eliminarPelicula(pelicula.id_pelicula)" class="btn btn-danger" style="margin-left: 10px ;" >Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+        <tfoot>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+

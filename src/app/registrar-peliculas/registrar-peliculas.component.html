@@ -1,0 +1,115 @@
+&nbsp;&nbsp;&nbsp;
+
+<form class="formulario" (ngSubmit) = "onSubmit()"  style="border-radius: 15px;" #peliculaForm="ngForm" >
+    <div><h3 class="text-center pt-3"  style="color:#FF4438 ; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;" >Registro de Peliculas</h3></div>
+    <div class="form-group">
+      <label for="nombre">Nombre Pelicula:</label>
+      <input type="text" class="form-control" [(ngModel)] = "pelicula.titulo" required  placeholder="Digite el nombre de la pelicula" #titulo = "ngModel"  minlength="3" maxlength="40"  name="titulo" id="titulo">
+      <div class="alert alert-danger" *ngIf= "titulo.invalid && (titulo.dirty || titulo.touched)">
+        <div *ngIf= "titulo.errors['required']">
+          Digite el nombre por favor.
+        </div>
+        <div *ngIf= "titulo.errors['minlength']">
+          El nombre debe contener como minimo 4 caracteres.
+        </div>
+        <div *ngIf= "titulo.errors['maxlength']">
+          El nombre debe contener como maximo 40 caracteres.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="mensaje">Descripcion:</label>
+      <textarea class="form-control" id="mensaje" [(ngModel)] = "pelicula.descripcion" required placeholder="Digite la descripcion de la pelicula" #descripcion = "ngModel"  minlength="5"  maxlength="134"  name="descripcion" id="descripcion" rows="3"></textarea>
+      <div class="alert alert-danger" *ngIf= "descripcion.invalid && (descripcion.dirty || descripcion.touched)">
+        <div *ngIf= "descripcion.errors['required']">
+          Digite la descripcion por favor.
+        </div>
+        <div *ngIf= "descripcion.errors['minlength']">
+          La descripcion  debe contener como minimo 4 caracteres.
+        </div>
+        <div *ngIf= "descripcion.errors['maxlength']">
+          La descripcion  debe contener como maximo 134 caracteres.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+        <label for="email">Imagen:</label>
+        <input type="text" class="form-control"  [(ngModel)] = "pelicula.imagen" required #imagen="ngModel"  name="imagen" id="imagen">
+        <div class="alert alert-danger" *ngIf= "imagen.invalid && (imagen.dirty || imagen.touched)">
+          <div *ngIf= "imagen.errors['required']">
+            Elija un archivo (.jpg , .png)  por favor.
+          </div>
+        </div>
+      </div>
+      <!-- (change)="onFileSelected($event)" -->
+
+      <div class="row">
+        <div class="col">
+          <label for="input1">Stock: </label>
+          <input type="text" class="form-control" [(ngModel)] = "pelicula.stock" required #stock="ngModel"  name="stock" id="stock">
+          <div class="alert alert-danger" *ngIf= "stock.invalid && (stock.dirty || stock.touched)">
+            <div *ngIf= "stock.errors['required']">
+              Digite el sotck por favor.
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <label for="input2">Tiempo: </label>
+          <input type="text" class="form-control" [(ngModel)] = "pelicula.tiempo" required placeholder="Escribe el tiempo de duracion " #tiempo="ngModel" name="tiempo" id="tiempo">
+          <div class="alert alert-danger" *ngIf= "tiempo.invalid && (tiempo.dirty || tiempo.touched)">
+            <div *ngIf= "tiempo.errors['required']">
+              Digite el Tiempo por favor.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <label for="input1">Precio Arquiler: </label>
+          <input type="text" class="form-control" [(ngModel)] = "pelicula.precio_alquiler" required #arquiler="ngModel"  name="arquiler" id="arquiler">
+          <div class="alert alert-danger" *ngIf= "arquiler.invalid && (arquiler.dirty || arquiler.touched)">
+            <div *ngIf= "arquiler.errors['required']">
+              Digite el precio de arquiler por favor.
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <label for="input2">Precio Venta: </label>
+          <input type="text" class="form-control" [(ngModel)] = "pelicula.precio_venta" required #venta="ngModel"  name="venta" id="venta">
+          <div class="alert alert-danger" *ngIf= "venta.invalid && (venta.dirty || venta.touched)">
+            <div *ngIf= "venta.errors['required']">
+              Digite el precio de venta por favor.
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="form-group">
+        <label for="email">Disponibilidad:</label>
+        <select class="form-control" [(ngModel)] = "pelicula.disponibilidad" required #disponibilidad="ngModel"  name="disponibilidad" id="disponibilidad">
+            <option value="0">No disponible</option>
+            <option value="1">Disponible</option>
+        </select>
+        <div class="alert alert-danger" *ngIf= "disponibilidad.invalid && (disponibilidad.dirty || disponibilidad.touched)">
+          <div *ngIf= "disponibilidad.errors['required']">
+            Seleccione la disponibilidad por favor.
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="row justify-content-center">
+        <button type="submit" class="btn btn-outline-success btn-block col-lg-5" [disabled]= "!peliculaForm.form.valid"><b>Guardar</b></button>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <button type="button" class="btn btn-outline-warning btn-block col-lg-5"><b>Cancelar</b></button>
+        </div>
+        </div>
+  </form>
+  
+
+  &nbsp;&nbsp;&nbsp;
